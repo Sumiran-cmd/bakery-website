@@ -1,0 +1,19 @@
+[build]
+  # The directory where your frontend code lives
+  base    = "frontend"
+  # The npm script to run the production build
+  command = "npm run build"
+  # The output directory Vite puts the built files
+  publish = "dist"
+
+[build.environment]
+  # Node.js version — use a stable LTS
+  NODE_VERSION = "20"
+
+# Tell Netlify that ALL paths should serve index.html (SPA fallback)
+# This is a second layer of protection alongside public/_redirects
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+

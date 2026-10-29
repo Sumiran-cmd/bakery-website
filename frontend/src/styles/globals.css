@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=General+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ─── Design Tokens ──────────────────────────────────────── */
+:root {
+  /* Brand Colors */
+  --color-brand-tan:       #E8CDA4;
+  --color-brand-tan-light: #F2E4CB;
+  --color-brand-tan-dark:  #D4B483;
+  --color-brand-cream:     #FBF6EE;
+  --color-brand-black:     #1A1209;
+  --color-brand-brown:     #4A3220;
+  --color-brand-warm:      #6B4C2A;
+
+  /* Neutrals */
+  --color-white:           #FFFFFF;
+  --color-off-white:       #F9F6F1;
+  --color-gray-50:         #F5F2ED;
+  --color-gray-100:        #EDE9E1;
+  --color-gray-200:        #D9D2C7;
+  --color-gray-300:        #BDB5A6;
+  --color-gray-400:        #9E9485;
+  --color-gray-500:        #7D7264;
+  --color-gray-600:        #5E5449;
+  --color-gray-700:        #3E362D;
+  --color-gray-800:        #2A2219;
+  --color-gray-900:        #1A1209;
+
+  /* Semantic */
+  --color-text-primary:    #1A1209;
+  --color-text-secondary:  #5E5449;
+  --color-text-muted:      #9E9485;
+  --color-text-inverse:    #FFFFFF;
+  --color-bg-primary:      #FFFFFF;
+  --color-bg-secondary:    #F9F6F1;
+  --color-bg-tertiary:     #F2E4CB;
+  --color-border:          #EDE9E1;
+  --color-border-strong:   #D9D2C7;
+
+  /* Status */
+  --color-sale:            #FF0033;
+  --color-success:         #2E7D32;
+  --color-warning:         #E65100;
+  --color-error:           #C62828;
+
+  /* Typography */
+  --font-primary:   'DM Sans', 'General Sans', sans-serif;
+  --font-secondary: 'General Sans', 'DM Sans', sans-serif;
+
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.8125rem; /* 13px */
+  --text-base: 0.9375rem; /* 15px */
+  --text-md:   1rem;      /* 16px */
+  --text-lg:   1.125rem;  /* 18px */
+  --text-xl:   1.25rem;   /* 20px */
+  --text-2xl:  1.5rem;    /* 24px */
+  --text-3xl:  1.875rem;  /* 30px */
+  --text-4xl:  2.25rem;   /* 36px */
+  --text-5xl:  3rem;      /* 48px */
+  --text-6xl:  3.75rem;   /* 60px */
+
+  --fw-light:   300;
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold:600;
+  --fw-bold:    700;
+
+  --lh-tight:  1.2;
+  --lh-snug:   1.35;
+  --lh-normal: 1.5;
+  --lh-relaxed:1.65;
+  --lh-loose:  1.8;
+
+  /* Spacing */
+  --space-1:  0.25rem;  /* 4px */
+  --space-2:  0.5rem;   /* 8px */
+  --space-3:  0.75rem;  /* 12px */
+  --space-4:  1rem;     /* 16px */
+  --space-5:  1.25rem;  /* 20px */
+  --space-6:  1.5rem;   /* 24px */
+  --space-7:  1.75rem;  /* 28px */
+  --space-8:  2rem;     /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-14: 3.5rem;   /* 56px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* Layout */
+  --max-width:       1440px;
+  --content-width:   1200px;
+  --container-pad:   clamp(1rem, 4vw, 3rem);
+  --header-height:   72px;
+
+  /* Border radius */
+  --radius-sm:  2px;
+  --radius-md:  4px;
+  --radius-lg:  8px;
+  --radius-xl:  12px;
+  --radius-2xl: 20px;
+  --radius-full:9999px;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(26,18,9,0.08);
+  --shadow-md:  0 4px 16px rgba(26,18,9,0.10);
+  --shadow-lg:  0 8px 32px rgba(26,18,9,0.12);
+  --shadow-xl:  0 16px 48px rgba(26,18,9,0.16);
+
+  /* Transitions */
+  --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:  cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:     150ms;
+  --dur-normal:   250ms;
+  --dur-slow:     400ms;
+}
+
+/* ─── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  font-weight: var(--fw-regular);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ─── Layout Utilities ───────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-top: var(--header-height);
+}
+
+/* ─── Typography ─────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-text-primary);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-gray-50); }
+::-webkit-scrollbar-thumb { background: var(--color-gray-300); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-gray-400); }
+
+/* ─── Focus ──────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-brand-tan-dark);
+  outline-offset: 2px;
+}
+
+/* ─── Selection ──────────────────────────────────────────── */
+::selection {
+  background: var(--color-brand-tan);
+  color: var(--color-brand-black);
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Accessibility ──────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ─── Button System ──────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-secondary);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  transition: all var(--dur-normal) var(--ease-out);
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.btn-primary {
+  background: var(--color-brand-black);
+  color: var(--color-white);
+  border: 1.5px solid var(--color-brand-black);
+}
+.btn-primary:hover {
+  background: var(--color-brand-brown);
+  border-color: var(--color-brand-brown);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-brand-black);
+  border: 1.5px solid var(--color-brand-black);
+}
+.btn-secondary:hover {
+  background: var(--color-brand-black);
+  color: var(--color-white);
+}
+
+.btn-tan {
+  background: var(--color-brand-tan);
+  color: var(--color-brand-black);
+  border: 1.5px solid var(--color-brand-tan);
+}
+.btn-tan:hover {
+  background: var(--color-brand-tan-dark);
+  border-color: var(--color-brand-tan-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 1.5px solid var(--color-border-strong);
+}
+.btn-ghost:hover {
+  border-color: var(--color-brand-black);
+  color: var(--color-brand-black);
+}
+
+.btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-size: var(--text-xs);
+}
+
+.btn-lg {
+  padding: 1rem 2.5rem;
+  font-size: var(--text-base);
+}
+
+/* ─── Badge System ───────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  font-family: var(--font-secondary);
+  font-size: 0.6875rem;
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  line-height: 1;
+}
+
+.badge-new     { background: var(--color-sale); color: white; }
+.badge-best    { background: var(--color-brand-tan); color: var(--color-brand-black); }
+.badge-sale    { background: var(--color-sale); color: white; }
+.badge-sub {
+  background: var(--color-brand-black);
+  color: var(--color-brand-tan);
+  position: relative;
+  overflow: hidden;
+}
+.badge-sub::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shine 2.5s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  20% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* ─── Loading Skeleton ───────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, var(--color-gray-100) 25%, var(--color-gray-50) 50%, var(--color-gray-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── Toast Overrides ────────────────────────────────────── */
+.react-hot-toast-container {
+  font-family: var(--font-primary) !important;
+}

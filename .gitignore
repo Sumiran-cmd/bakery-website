@@ -1,0 +1,54 @@
+# ==============================================================================
+# Bean Theory — Root .gitignore
+# ==============================================================================
+
+# Environment files — NEVER commit real secrets
+.env
+.env.local
+.env.*.local
+
+# Python / Backend
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/.Python
+backend/venv/
+backend/.venv/
+backend/env/
+backend/build/
+backend/dist/
+backend/*.egg-info/
+backend/.eggs/
+backend/.mypy_cache/
+backend/.pytest_cache/
+backend/.ruff_cache/
+# Do NOT commit local databases — use migrations + seed
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+
+# Frontend / Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.cache/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/settings.json
+*.log
+# Local databases and instance data
+*.db
+*.sqlite
+*.sqlite3
+backend/instance/
+
+# Do not commit unrelated binaries in image folders
+frontend/public/images/placeholders/*.exe
+frontend/public/images/placeholders/*.winmd

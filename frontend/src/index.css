@@ -1,0 +1,145 @@
+@import './styles/globals.css';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Rich Artisan Coffee Brand Palette */
+  --color-espresso: #2B1B17;
+  --color-espresso-dark: #1E120F;
+  --color-crema: #D4A373;
+  --color-terracotta: #B85D3A;
+  --color-primary: #B85D3A;
+  --color-primary-hover: #A04D2E;
+  --color-secondary: #E8CDA4;
+  
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #FAF7F2;
+  --color-bg-warm: #F4EFE6;
+  --color-border: #E8E2D8;
+  --color-border-light: #F0ECE4;
+  --color-border-dark: #D0C8BC;
+  
+  --color-text-primary: #2B1B17;
+  --color-text-secondary: #635853;
+  --color-text-tertiary: #9C9189;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-md: 1.0625rem;
+  --font-lg: 1.1875rem;
+  --font-xl: 1.375rem;
+  --font-2xl: 1.75rem;
+  --font-3xl: 2.25rem;
+  --font-4xl: 3rem;
+  --font-5xl: 3.75rem;
+
+  /* Transitions & Z-Index */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --z-header: 100;
+  --z-drawer: 500;
+  --z-modal: 1000;
+  --header-height: 72px;
+
+  /* Spacing */
+  --container-pad: clamp(1rem, 4vw, 3rem);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Base Card utility */
+.card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 12px rgba(43, 27, 23, 0.04);
+  transition: all var(--transition-normal);
+}
+
+/* Base Button Utilities */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.75rem 1.75rem;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  font-family: var(--font-sans);
+}
+
+.btn-primary {
+  background: var(--color-terracotta);
+  color: #ffffff !important;
+  border: 1px solid var(--color-terracotta);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  box-shadow: 0 4px 14px rgba(184, 93, 58, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--color-espresso);
+  color: #ffffff !important;
+  border: 1px solid var(--color-espresso);
+}
+
+.btn-secondary:hover {
+  background: var(--color-espresso-dark);
+  box-shadow: 0 4px 14px rgba(43, 27, 23, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-espresso) !important;
+  border: 1.5px solid var(--color-border-dark);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-espresso);
+  background: rgba(43, 27, 23, 0.04);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-espresso);
+  border: none;
+  padding: 0.5rem 0.75rem;
+}
+
+.btn-ghost:hover {
+  background: rgba(43, 27, 23, 0.05);
+}
+
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: var(--font-xs);
+}
+
+.btn-block {
+  width: 100%;
+}

@@ -1,0 +1,484 @@
+/* ══════════════════════════════════════════════════════════════════
+   Food & Snacks Menu — FoodSnacksMenu.css
+   Brand: Bean Theory  |  Theme: warm cream / olive green / espresso
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Local tokens ─────────────────────────────────────────────────── */
+.food-section {
+  --food-bg:           var(--color-bg-secondary, #FAF7F2);
+  --food-intro-bg:     #F0EDE4;
+  --food-card-bg:      #FFFFFF;
+  --food-card-border:  var(--color-border, #E8E2D8);
+  --food-olive:        #6B7C5A;
+  --food-olive-mid:    #58684A;
+  --food-olive-light:  #E8EDDF;
+  --food-espresso:     var(--color-espresso, #2B1B17);
+  --food-text-1:       var(--color-text-primary,   #2B1B17);
+  --food-text-2:       var(--color-text-secondary, #635853);
+  --food-text-3:       var(--color-text-tertiary,  #9C9189);
+  --food-radius:       var(--radius-lg, 8px);
+  --food-font-sans:    var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  --food-font-serif:   var(--font-serif,'Playfair Display', Georgia, serif);
+
+  background-color: var(--food-bg);
+}
+
+/* ─── Section Introduction ───────────────────────────────────────── */
+.food-intro {
+  background-color: var(--food-intro-bg);
+  padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Olive-tinted left atmospheric glow */
+.food-intro::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -8%;
+  width: 55%;
+  height: 160%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(107, 124, 90, 0.14) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+/* Warm golden glow on the right for depth */
+.food-intro::after {
+  content: '';
+  position: absolute;
+  bottom: -25%;
+  right: -5%;
+  width: 45%;
+  height: 130%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(212, 163, 115, 0.12) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.food-intro .container {
+  position: relative;
+}
+
+.food-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--food-font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--food-olive);
+  margin-bottom: 0.9rem;
+}
+
+.food-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 26px;
+  height: 1.5px;
+  background: var(--food-olive);
+  border-radius: 2px;
+}
+
+.food-title {
+  font-family: var(--food-font-serif);
+  font-size: clamp(2.4rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  color: var(--food-espresso);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.1rem;
+}
+
+.food-description {
+  font-family: var(--food-font-sans);
+  font-size: clamp(0.95rem, 1.6vw, 1.075rem);
+  color: var(--food-text-2);
+  line-height: 1.75;
+  max-width: 580px;
+}
+
+/* ─── Thin Rule Divider ──────────────────────────────────────────── */
+.food-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--food-card-border) 15%,
+    var(--food-card-border) 85%,
+    transparent 100%
+  );
+}
+
+/* ─── Category Filter Bar ────────────────────────────────────────── */
+.food-filter-wrap {
+  background-color: var(--food-bg);
+  padding: 1.5rem 0 0;
+  position: sticky;
+  top: var(--header-height, 72px);
+  z-index: 40;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 2%,
+    black 98%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 2%,
+    black 98%,
+    transparent 100%
+  );
+}
+
+.food-filter-wrap::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--food-card-border);
+}
+
+.food-filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 1.25rem;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.food-filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.food-filter-btn {
+  flex-shrink: 0;
+  padding: 0.45rem 1.1rem;
+  font-family: var(--food-font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--food-text-2);
+  background: transparent;
+  border: 1.5px solid var(--food-card-border);
+  border-radius: var(--radius-full, 9999px);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color        200ms cubic-bezier(0.16, 1, 0.3, 1),
+    background   200ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow   200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.food-filter-btn:hover {
+  border-color: var(--food-olive);
+  color: var(--food-olive);
+}
+
+.food-filter-btn.active {
+  background: var(--food-olive);
+  border-color: var(--food-olive);
+  color: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(107, 124, 90, 0.28);
+}
+
+.food-filter-btn:focus-visible {
+  outline: 2px solid var(--food-olive);
+  outline-offset: 2px;
+}
+
+/* ─── Product Grid ───────────────────────────────────────────────── */
+.food-grid-wrap {
+  padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(4rem, 8vw, 6rem);
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+/* ─── Food Card ──────────────────────────────────────────────────── */
+.food-card {
+  display: flex;
+  flex-direction: row;
+  background: var(--food-card-bg);
+  border: 1px solid var(--food-card-border);
+  border-radius: var(--food-radius);
+  overflow: hidden;
+  transition:
+    border-color 250ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow   250ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform    250ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.food-card:hover {
+  border-color: rgba(107, 124, 90, 0.4);
+  box-shadow: 0 6px 28px rgba(43, 27, 23, 0.1);
+  transform: translateY(-2px);
+}
+
+.food-card:focus-within {
+  outline: 2px solid var(--food-olive);
+  outline-offset: 2px;
+}
+
+/* ── Card Image ── */
+.food-card-img {
+  flex: 0 0 clamp(105px, 22%, 145px);
+  width: clamp(105px, 22%, 145px);
+  min-height: clamp(105px, 22%, 145px);
+  overflow: hidden;
+  position: relative;
+  background: var(--food-intro-bg);
+}
+
+/* Force ImagePlaceholder to fill the container completely */
+.food-card-img .img-placeholder-root {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.food-card-img .img-placeholder-inner {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding-bottom: 0 !important;
+  background: var(--food-intro-bg) !important;
+}
+
+.food-card-img .img-placeholder-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.food-card:hover .food-card-img .img-placeholder-img {
+  transform: scale(1.04);
+}
+
+.food-card-img .img-placeholder-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--food-intro-bg) !important;
+}
+
+.food-card-img .img-placeholder-loading {
+  position: absolute;
+  inset: 0;
+}
+
+/* ── Card Body ── */
+.food-card-body {
+  flex: 1;
+  padding: clamp(0.85rem, 2vw, 1.1rem) clamp(0.85rem, 2vw, 1.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+/* ── Card Header (name + price on same row) ── */
+.food-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.food-card-title-group {
+  min-width: 0;
+  flex: 1;
+}
+
+.food-card-name {
+  font-family: var(--food-font-sans);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 700;
+  color: var(--food-espresso);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.food-card-subtitle {
+  font-family: var(--food-font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--food-text-3);
+  margin-top: 0.2rem;
+}
+
+/* Olive green price accent — distinct from bakes (terracotta) & drinks (crema gold) */
+.food-card-price {
+  flex-shrink: 0;
+  font-family: var(--food-font-serif);
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  font-weight: 600;
+  color: var(--food-olive-mid);
+  white-space: nowrap;
+  line-height: 1.25;
+}
+
+/* ── Card Description ── */
+.food-card-desc {
+  font-family: var(--food-font-sans);
+  font-size: clamp(0.75rem, 1.2vw, 0.82rem);
+  color: var(--food-text-2);
+  line-height: 1.6;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  flex: 1;
+}
+
+/* ── Dietary Tags ── */
+.food-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.2rem;
+}
+
+.food-card-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.6rem;
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid var(--tag-border);
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  font-family: var(--food-font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* ─── Empty State ────────────────────────────────────────────────── */
+.food-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.food-empty p {
+  font-family: var(--food-font-sans);
+  font-size: 1rem;
+  color: var(--food-text-3);
+  font-style: italic;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .food-card-img {
+    flex: 0 0 clamp(90px, 20%, 120px);
+    width: clamp(90px, 20%, 120px);
+    min-height: clamp(90px, 20%, 120px);
+  }
+}
+
+/* Mobile — single column, card stacks vertically */
+@media (max-width: 640px) {
+  .food-grid {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+
+  .food-card {
+    flex-direction: column;
+  }
+
+  .food-card-img {
+    flex: none;
+    width: 100%;
+    height: 140px;
+    min-height: unset;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .food-card-body {
+    padding: 0.9rem 1rem;
+  }
+
+  .food-card-name {
+    font-size: 0.9375rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .food-card-desc {
+    -webkit-line-clamp: 2;
+  }
+
+  .food-filter-wrap {
+    top: var(--header-height, 72px);
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 380px) {
+  .food-title {
+    font-size: 2rem;
+  }
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .food-card,
+  .food-filter-btn,
+  .food-card-img .img-placeholder-img {
+    transition: none !important;
+  }
+
+  .food-card:hover {
+    transform: none;
+  }
+}

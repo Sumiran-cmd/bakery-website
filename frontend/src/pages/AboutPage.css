@@ -1,0 +1,231 @@
+.about-page {
+  background: var(--color-bg);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.about-hero {
+  background: linear-gradient(135deg, #2b1b17 0%, #1f1310 100%);
+  color: #fff;
+  padding: var(--space-20) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero-container {
+  max-width: 800px;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: var(--font-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-crema);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+}
+
+.hero-title {
+  font-size: var(--font-4xl);
+  font-family: var(--font-serif);
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: var(--space-4);
+}
+
+.hero-subtitle {
+  font-size: var(--font-lg);
+  color: #d1c7bd;
+  line-height: 1.6;
+}
+
+.about-section {
+  padding: var(--space-16) 0;
+}
+
+.story-section {
+  background: var(--color-bg);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.section-label {
+  display: inline-block;
+  font-size: var(--font-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-terracotta);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.story-content h2 {
+  font-size: var(--font-3xl);
+  font-family: var(--font-serif);
+  color: var(--color-espresso);
+  margin-bottom: var(--space-4);
+}
+
+.story-content p {
+  font-size: var(--font-base);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+}
+
+.farmer-quote {
+  margin-top: var(--space-6);
+  border-left: 3px solid var(--color-terracotta);
+  padding-left: var(--space-4);
+}
+
+.farmer-quote blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--font-lg);
+  color: var(--color-espresso);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.story-stats-card {
+  padding: var(--space-8);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-icon {
+  color: var(--color-terracotta);
+  margin-bottom: var(--space-2);
+}
+
+.stat-num {
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  font-family: var(--font-serif);
+  color: var(--color-espresso);
+}
+
+.stat-desc {
+  font-size: var(--font-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+}
+
+.values-section {
+  background: var(--color-bg-secondary);
+}
+
+.section-header {
+  margin-bottom: var(--space-12);
+}
+
+.section-header.text-center {
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: var(--font-3xl);
+  font-family: var(--font-serif);
+  color: var(--color-espresso);
+}
+
+.section-desc {
+  color: var(--color-text-secondary);
+  font-size: var(--font-base);
+  margin-top: var(--space-2);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.value-card {
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: #fff;
+}
+
+.val-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(184, 93, 58, 0.1);
+  color: var(--color-terracotta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.value-card h3 {
+  font-size: var(--font-lg);
+  color: var(--color-espresso);
+  margin-bottom: var(--space-2);
+}
+
+.value-card p {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.roastery-cta {
+  padding: var(--space-16) 0;
+  background: var(--color-bg);
+}
+
+.cta-container {
+  max-width: 800px;
+}
+
+.cta-box {
+  text-align: center;
+  padding: var(--space-10) var(--space-6);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, #2b1b17 0%, #3d261d 100%);
+  color: #fff;
+}
+
+.cta-box h2 {
+  font-family: var(--font-serif);
+  font-size: var(--font-3xl);
+  margin-bottom: var(--space-3);
+  color: #fff;
+}
+
+.cta-box p {
+  color: #d1c7bd;
+  font-size: var(--font-base);
+  margin-bottom: var(--space-6);
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
