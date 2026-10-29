@@ -52,3 +52,6 @@ backend/instance/
 # Do not commit unrelated binaries in image folders
 frontend/public/images/placeholders/*.exe
 frontend/public/images/placeholders/*.winmd
+
+# Installer files are not website assets
+frontend/public/images/placeholders/*.msi
